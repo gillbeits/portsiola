@@ -1,0 +1,595 @@
+@import "variables";
+@import "bootstrap";
+
+@min-body:    320px;
+
+a.button {
+  &:extend(.btn all);
+}
+a.button.btn-danger {
+  &:extend(.btn-danger all);
+}
+a.button.btn-default {
+  &:extend(.btn-default all);
+}
+
+@media
+  (min-width: @screen-md-min) {
+    a.button {
+      .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+    }
+  }
+
+@media
+  (max-width: @screen-xs-min) and (min-width: @min-body) {
+    a.button {
+      .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+    }
+  }
+
+.block-height(@block-height, @ratio: 1) {
+  @media
+  (min-width: @screen-md-min) {
+    height: @block-height * @ratio;
+  }
+
+  @media
+  (max-width: @screen-md-max) {
+    height: (@block-height / @container-large-desktop * @container-desktop * @ratio);
+  }
+
+  @media
+  (max-width: @screen-sm-max) {
+    height: (@block-height / @container-large-desktop * @container-tablet * @ratio);
+  }
+
+  @media
+  (max-width: @screen-xs-max) {
+    height: (@block-height / @container-large-desktop * @screen-xs-min * @ratio);
+  }
+
+  @media
+  (max-width: @screen-xs-min) and (min-width: @min-body) {
+    height: (@block-height / @container-large-desktop * @min-body * @ratio);
+  }
+}
+.block-width(@block-width, @ratio: 1) {
+  @media
+  (min-width: @screen-md-min) {
+    width: @block-width * @ratio;
+  }
+
+  @media
+  (max-width: @screen-md-max) {
+    width: (@block-width / @container-large-desktop * @container-desktop * @ratio);
+  }
+
+  @media
+  (max-width: @screen-sm-max) {
+    width: (@block-width / @container-large-desktop * @container-tablet * @ratio);
+  }
+
+  @media
+  (max-width: @screen-xs-max) {
+    width: (@block-width / @container-large-desktop * @screen-xs-min * @ratio);
+  }
+
+  @media
+  (max-width: @screen-xs-min) and (min-width: @min-body) {
+    width: (@block-width / @container-large-desktop * @min-body * @ratio);
+  }
+}
+
+body {
+  min-width: @min-body;
+
+}
+a[rel="href"] {
+  top: -63px;
+  visibility: hidden;
+  display: block;
+  position: relative;
+}
+
+.horizontal-menu {
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li.item {
+      display: inline-block;
+
+      a {
+        font-size: @font-size-base;
+        line-height: 19px;
+        font-weight: 300;
+        color: @gray-base;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background-color: @brand-blue;
+  height: 63px;
+
+  .container {
+    position: relative;
+    transform: translate(0, -50%);
+    top: 50%;
+    .logo {
+      img {
+        height: 37px;
+        &:last-child {
+          margin-top: 5px;
+          margin-left: 15px;
+          height: 28px;
+        }
+      }
+    }
+  }
+
+  .top-menu {
+    &:extend(.horizontal-menu all);
+
+    ul {
+      margin-top: 5px;
+      li.item {
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background-color: lighten(@brand-blue, 5%);
+        padding: 0 15px;
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          color: white;
+        }
+
+        &:last-child {
+          a {
+            margin-top: 4px;
+            display: block;
+          }
+          border: white 2px solid;
+          background-color: @brand-red;
+        }
+      }
+    }
+
+    @media (max-width: @screen-xs-max) {
+      ul {
+        display: block;
+        padding: 0;
+        text-align: center;
+        li.item {
+          display: list-item;
+          list-style-type: none;
+          a {
+
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: @brand-blue;
+  height: 121px;
+  padding: 20px 0;
+  color: #ffffff;
+  font-size: @font-size-small;
+  z-index: 20;
+
+  @media (max-width: @screen-sm-max) {
+    * {
+      text-align: center !important;
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    * {
+      text-align: center !important;
+    }
+    a {
+      display: block;
+    }
+  }
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-left: 10px;
+  }
+
+  .contraindications {
+    margin-top: 10px;
+    height: 63px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.t--upper {
+  text-transform: uppercase;
+}
+
+.btn {
+  &:extend(.t--upper);
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.08);
+  .box-shadow(0 3px 0 rgba(0, 0, 0, 0.05));
+}
+
+.content {
+  margin-top: 63px;
+}
+
+.slide-1(@slide-1-height, @bg-img) {
+  position: relative;
+  .block-height(@slide-1-height);
+  background-color: #ffffff;
+
+  .back {
+    display: block;
+    background: url(@bg-img) no-repeat 0 0;
+    background-size: contain;
+    height: 100%;
+    a.button {
+      position: absolute;
+    }
+  }
+}
+.slide-2(@slide-2-height) {
+  @l-bg-width: 329px;
+  @r-bg-width: 285px;
+  background-color: #eff5f9;
+  .block-height(@slide-2-height);
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: .77;
+    top: 0;
+    left: 0;
+    height: 100%;
+    .block-width(@l-bg-width);
+    display: block;
+    background: url("/i/2-slide-l.png") no-repeat 0 0;
+    background-size: contain;
+    z-index: 20;
+  }
+  &::after {
+    content: "";
+    top: 0;
+    position: absolute;
+    opacity: .77;
+    right: 0;
+    height: 100%;
+    .block-width(@r-bg-width);
+    display: block;
+    background: url("/i/2-slide-r.png") no-repeat 0 0;
+    background-size: contain;
+    z-index: 20;
+  }
+  .back {
+    display: block;
+    background: url("/i/2-slide-bg.png") no-repeat 50% 50%;
+    background-size: contain;
+    height: 100%;
+    transform: scale(.8) translateY(-10%);
+  }
+
+  a.button {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  @media (min-width: @screen-md-min) {
+    a.button {
+      bottom: 40px;
+    }
+  }
+
+  @media (max-width: @screen-md-max) {
+    a.button {
+      bottom: 20px;
+    }
+  }
+
+  @media (max-width: @screen-sm-max) {
+    a.button {
+      bottom: 20px;
+    }
+  }
+
+  @media (max-width: @screen-xs-max) {
+    a.button {
+      bottom: 5px;
+    }
+  }
+
+  @media (max-width: @screen-xs-min) and (min-width: @min-body) {
+    a.button {
+      bottom: 5px;
+    }
+  }
+}
+.slide-3(@slide-3-height, @bg-img) {
+  position: relative;
+  .block-height(@slide-3-height);
+  background-color: #3da9ca;
+  .back {
+    position: relative;
+    display: block;
+    background: url(@bg-img) no-repeat 0 0;
+    background-size: contain;
+    height: 100%;
+    a.button {
+      position: absolute;
+    }
+
+  }
+}
+
+.weight {
+
+  @slide-1-height: 537px;
+  @slide-2-height: 600px;
+  @slide-3-height: 602px;
+
+  .slide {
+    position: relative;
+    .back {
+      &:extend(.container all);
+    }
+
+    &.slide-1 {
+      .slide-1(@slide-1-height, "/i/1-slide-bg.jpg");
+
+      @media (min-width: @screen-md-min) {
+        .back {
+          transform: translateX(-50px);
+          a.button {
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-30%);
+          }
+        }
+      }
+
+      @media (max-width: @screen-md-max) {
+        .back {
+          transform: translateX(-50px);
+          a.button {
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-37%);
+          }
+        }
+      }
+
+      @media (max-width: @screen-sm-max) {
+        .back {
+          transform: translateX(-50px);
+          background-position-x: 50%;
+          a.button {
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-25%);
+          }
+        }
+      }
+
+      @media (max-width: @screen-xs-max) {
+        .back {
+          transform: translateX(0);
+          a.button {
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-60%);
+          }
+        }
+      }
+
+      @media (max-width: @screen-xs-min) and (min-width: @min-body) {
+        .back {
+          transform: translateX(0);
+          background-position-x: 50%;
+          a.button {
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-60%);
+          }
+        }
+      }
+    }
+    &.slide-2 {
+      .slide-2(@slide-2-height);
+
+    }
+    &.slide-3 {
+      .slide-3(@slide-3-height, "/i/3-slide-bg.png");
+      @media (min-width: @screen-md-min) {
+        .back {
+          a.button {
+            bottom: 160px;
+            right: 90px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-md-max) {
+        .back {
+          a.button {
+            bottom: 100px;
+            right: 40px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-sm-max) {
+        .back {
+          background-position-x: 50%;
+          a.button {
+            bottom: 100px;
+            right: 40px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-xs-max) {
+        .back {
+          transform: translateX(0);
+          a.button {
+            bottom: 60px;
+            right: 40px;
+          }
+        }
+      }
+
+      @media (min-width: @min-body) and (max-width: @screen-xs-min) {
+        .back {
+          transform: translateX(0);
+          background-position-x: 50%;
+          a.button {
+            bottom: 30px;
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fat {
+  @slide-1-height: 536px;
+  @slide-2-height: 600px;
+  @slide-3-height: 602px;
+  .slide {
+    position: relative;
+    .back {
+      &:extend(.container all);
+    }
+    &.slide-1 {
+      background: transparent url("/i/4-slide-bg-back.png") 80% 100% no-repeat;
+      background-size: contain;
+      .slide-1(@slide-1-height, "/i/4-slide-bg.png");
+      .back {
+        position: relative;
+        background-position-x: 15px;
+      }
+
+      @media (min-width: @screen-md-min) {
+        .back {
+          a.button {
+            bottom: 35px;
+            left: 25px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-md-max) {
+        .back {
+          a.button {
+            bottom: 25px;
+            left: 5px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-sm-max) {
+        .back {
+          background-position-x: 50%;
+          a.button {
+            bottom: 25px;
+            left: 60px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-xs-max) {
+        .back {
+          transform: translateX(0);
+          a.button {
+            bottom: 10px;
+            left: 60px;
+          }
+        }
+      }
+
+      @media (min-width: @min-body) and (max-width: @screen-xs-min) {
+        .back {
+          transform: translateX(0);
+          background-position-x: 50%;
+          a.button {
+            bottom: 5px;
+            left: 45px;
+          }
+        }
+      }
+
+    }
+    &.slide-2 {
+      .slide-2(@slide-2-height);
+    }
+    &.slide-3 {
+      .slide-3(@slide-3-height, "/i/5-slide-bg.jpg");
+      background-color: white;
+      @media (min-width: @screen-md-min) {
+        .back {
+          a.button {
+            bottom: 70px;
+            right: 210px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-md-max) {
+        .back {
+          a.button {
+            bottom: 40px;
+            right: 150px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-sm-max) {
+        .back {
+          background-position-x: 50%;
+          a.button {
+            bottom: 40px;
+            right: 100px;
+          }
+        }
+      }
+
+      @media (max-width: @screen-xs-max) {
+        .back {
+          transform: translateX(0);
+          a.button {
+            bottom: 20px;
+            right: 140px;
+          }
+        }
+      }
+
+      @media (min-width: @min-body) and (max-width: @screen-xs-min) {
+        .back {
+          transform: translateX(0);
+          background-position-x: 50%;
+          a.button {
+            bottom: 30px;
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
