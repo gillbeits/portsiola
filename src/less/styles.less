@@ -23,7 +23,7 @@ a.button.btn-default {
 @media
   (max-width: @screen-xs-min) and (min-width: @min-body) {
     a.button {
-      .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+      .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
     }
   }
 
@@ -131,8 +131,22 @@ header {
           margin-left: 15px;
           height: 28px;
         }
+
+        @media (max-width: @screen-xs-max) {
+          height: 30px;
+          &:last-child {
+            height: 23px;
+          }
+        }
       }
     }
+  }
+
+  #xsMenuBtn {
+    font-size: @font-size-h2;
+    vertical-align: middle;
+    text-align: right;
+    color: white;
   }
 
   .top-menu {
@@ -161,19 +175,10 @@ header {
           border: white 2px solid;
           background-color: @brand-red;
         }
-      }
-    }
 
-    @media (max-width: @screen-xs-max) {
-      ul {
-        display: block;
-        padding: 0;
-        text-align: center;
-        li.item {
-          display: list-item;
-          list-style-type: none;
+        @media (max-width: @screen-md-max) {
           a {
-
+            font-size: @font-size-small;
           }
         }
       }
@@ -213,6 +218,58 @@ footer {
     height: 63px;
     img {
       width: 100%;
+    }
+  }
+}
+
+#overlay_menu {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, .7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .closeBtn {
+    position: absolute;
+    top: (@font-size-large / 2);
+    right: (@font-size-large / 2);
+    font-size: @font-size-large;
+    color: @brand-red;
+  }
+  .container {
+    height: 100%;
+    position: relative;
+    ul {
+      text-align: center;
+      padding: 0;
+      position: relative;
+      transform: translateY(-50%);
+      top: 50%;
+      display: block;
+      li.item {
+        text-align: center;
+        display: block;
+        list-style-type: none;
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          color: white;
+        }
+
+        &:last-child {
+          border: white 2px solid;
+          background-color: @brand-red;
+          border-radius: 15px;
+          display: inline-block;
+        }
+
+      }
     }
   }
 }
@@ -337,10 +394,34 @@ footer {
 
   }
 }
-
+.slide-2-xs {
+  margin-bottom: 20px;
+  text-align: center;
+  img {
+    width: 100%;
+  }
+  @media
+  (max-width: @screen-md-min) {
+    a.button {
+      .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+    }
+  }
+}
+.slide-3-xs {
+  position: relative;
+  img {
+    width: 100%;
+  }
+  @media
+  (max-width: @screen-md-min) {
+    a.button {
+      .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+    }
+  }
+}
 .weight {
 
-  @slide-1-height: 537px;
+  @slide-1-height: 536px;
   @slide-2-height: 600px;
   @slide-3-height: 602px;
 
@@ -357,9 +438,8 @@ footer {
         .back {
           transform: translateX(-50px);
           a.button {
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-30%);
+            bottom: 15px;
+            right: 50px;
           }
         }
       }
@@ -368,9 +448,8 @@ footer {
         .back {
           transform: translateX(-50px);
           a.button {
-            bottom: 85px;
-            left: 50%;
-            transform: translateX(-37%);
+            bottom: 15px;
+            right: 50px;
           }
         }
       }
@@ -380,9 +459,8 @@ footer {
           transform: translateX(-50px);
           background-position-x: 50%;
           a.button {
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-25%);
+            bottom: 15px;
+            right: 50px;
           }
         }
       }
@@ -391,9 +469,8 @@ footer {
         .back {
           transform: translateX(0);
           a.button {
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-60%);
+            bottom: 2px;
+            right: 130px;
           }
         }
       }
@@ -403,9 +480,9 @@ footer {
           transform: translateX(0);
           background-position-x: 50%;
           a.button {
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-60%);
+            bottom: 20px;
+            right: auto;
+            left: 70px;
           }
         }
       }
@@ -419,8 +496,8 @@ footer {
       @media (min-width: @screen-md-min) {
         .back {
           a.button {
-            bottom: 160px;
-            right: 90px;
+            bottom: 120px;
+            right: 100px;
           }
         }
       }
@@ -428,8 +505,8 @@ footer {
       @media (max-width: @screen-md-max) {
         .back {
           a.button {
-            bottom: 100px;
-            right: 40px;
+            bottom: 80px;
+            right: 80px;
           }
         }
       }
@@ -438,7 +515,7 @@ footer {
         .back {
           background-position-x: 50%;
           a.button {
-            bottom: 100px;
+            bottom: 80px;
             right: 40px;
           }
         }
@@ -465,11 +542,21 @@ footer {
         }
       }
     }
+    &.slide-2-xs {
+      &:extend(.slide-2-xs all);
+    }
+    &.slide-3-xs {
+      &:extend(.slide-3-xs all);
+      .button {
+        position: absolute;
+        bottom: 30px;
+        right: 10px;
+      }
+    }
   }
 }
-
 .fat {
-  @slide-1-height: 536px;
+  @slide-1-height: 521px;
   @slide-2-height: 600px;
   @slide-3-height: 602px;
   .slide {
@@ -478,7 +565,7 @@ footer {
       &:extend(.container all);
     }
     &.slide-1 {
-      background: transparent url("/i/4-slide-bg-back.png") 80% 100% no-repeat;
+      background: transparent url("/i/4-slide-bg-back.png") 115% 100% no-repeat;
       background-size: contain;
       .slide-1(@slide-1-height, "/i/4-slide-bg.png");
       .back {
@@ -506,7 +593,6 @@ footer {
 
       @media (max-width: @screen-sm-max) {
         .back {
-          background-position-x: 50%;
           a.button {
             bottom: 25px;
             left: 60px;
@@ -526,11 +612,10 @@ footer {
 
       @media (min-width: @min-body) and (max-width: @screen-xs-min) {
         .back {
-          transform: translateX(0);
-          background-position-x: 50%;
           a.button {
+            .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
             bottom: 5px;
-            left: 45px;
+            left: 15px;
           }
         }
       }
@@ -589,6 +674,18 @@ footer {
             right: 5px;
           }
         }
+      }
+    }
+    &.slide-2-xs {
+      &:extend(.slide-2-xs all);
+    }
+    &.slide-3-xs {
+      &:extend(.slide-3-xs all);
+      .button {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }

@@ -1,17 +1,13 @@
 header
     .container
         .row
-            .col-md-4.logo
+            .col-md-4.col-sm-10.col-xs-10.logo
                 a(href="")
                     img(src="/i/1.svg")
                     img(src="/i/2.svg")
-            .top-menu.col-md-8.col-sm-8.col-xs-12.hidden-xs
-                ul
-                    li.item
-                        a(href='/about/') О препарате
-                    li.item
-                        a(href='#work') Как работает
-                    li.item
-                        a(href='#safety') Безопасность и эффективность
-                    li.item
-                        a(href='http://www.piluli.ru/product/portsiola') Купить онлайн
+            .xs-menu-button.col-xs-2.col-sm-2.pull-right.visible-xs.visible-sm
+                #xsMenuBtn(role="button")
+                    span.glyphicon.glyphicon-align-justify.visible-sm
+                    span.glyphicon.glyphicon-option-vertical.visible-xs
+            .top-menu.col-md-8.col-sm-12.hidden-sm.hidden-xs
+                include menu
