@@ -167,14 +167,14 @@ header {
           color: white;
         }
 
-        &:last-child {
-          a {
-            margin-top: 4px;
-            display: block;
-          }
-          border: white 2px solid;
-          background-color: @brand-red;
-        }
+        //&:last-child {
+        //  a {
+        //    margin-top: 4px;
+        //    display: block;
+        //  }
+        //  border: white 2px solid;
+        //  background-color: @brand-red;
+        //}
 
         @media (max-width: @screen-md-max) {
           a {
@@ -262,12 +262,12 @@ footer {
           color: white;
         }
 
-        &:last-child {
-          border: white 2px solid;
-          background-color: @brand-red;
-          border-radius: 15px;
-          display: inline-block;
-        }
+        //&:last-child {
+        //  border: white 2px solid;
+        //  background-color: @brand-red;
+        //  border-radius: 15px;
+        //  display: inline-block;
+        //}
 
       }
     }
@@ -280,8 +280,8 @@ footer {
 
 .btn {
   &:extend(.t--upper);
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.08);
-  .box-shadow(0 3px 0 rgba(0, 0, 0, 0.05));
+  //text-shadow: 0 3px 0 rgba(0, 0, 0, 0.08);
+  //.box-shadow(0 3px 0 rgba(0, 0, 0, 0.05));
 }
 
 .content {
@@ -482,7 +482,7 @@ footer {
           a.button {
             bottom: 20px;
             right: auto;
-            left: 70px;
+            left: 60px;
           }
         }
       }
@@ -565,7 +565,6 @@ footer {
       &:extend(.container all);
     }
     &.slide-1 {
-      background: transparent url("/i/4-slide-bg-back.png") 115% 100% no-repeat;
       background-size: contain;
       .slide-1(@slide-1-height, "/i/4-slide-bg.png");
       .back {
